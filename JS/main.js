@@ -1,17 +1,34 @@
 $(function(){
 
+$('nav a').on('click', function(event){
+	event.preventDefault();
+
+	let href = $(this).attr('href');
+
+	let offset = $(href).offset().top;
+
+	$('body, html').animate({
+		scrollTop: offset,
+	}, 700);
+});
+
 $('.header-panel__menu img').click(function(){
-    if($('.menu-mob').css('display') == 'none') {
-        $('.menu-mob').css({
+    if($('.menu-mobail').css('display') == 'none') {
+        $('.menu-mobail').css({
             display: 'inline-block'
         });
     } else {
-        $('.menu-mob').css({
+        $('.menu-mobail').css({
             display: 'none'
         });
     }
 });
 
+$('.menu-mobail nav a').click(function(){
+	$('.menu-mobail').css({
+		display: 'none'
+	});
+});
 
 $('.to-order').click(function(){
 	$('.phone').fadeIn(500);
@@ -53,229 +70,237 @@ $('.email').click(function(event){
 	}
 });
 
-$('.arrow1').click(function(){
-	if($('.list-works__type-work:nth-child(1)').css('order') == '1') {
-        $('.list-works__type-work:nth-child(1)').css({
-			order: '2'
+var firstBlock = $('.works__item:nth-child(1)');
+var secondBlock = $('.works__item:nth-child(2)');
+var thirdBlock = $('.works__item:nth-child(3)');
+
+var firstSwitch = $('.works__switch button:nth-child(1)');
+var secondSwitch = $('.works__switch button:nth-child(2)');
+var thirdSwitch = $('.works__switch button:nth-child(3)');
+
+$('.works__left-arrow').click(function(){
+	if(firstBlock.css('order') == '1') {
+        firstBlock.css({
+			order: '2',
 		});
-		$('.list-works__type-work:nth-child(2)').css({
+		secondBlock.css({
+			order: '3',
+		});
+		thirdBlock.css({
+			order: '1',
+		});
+    } else if (firstBlock.css('order') == '2'){
+        firstBlock.css({
 			order: '3'
 		});
-		$('.list-works__type-work:nth-child(3)').css({
+		secondBlock.css({
 			order: '1'
 		});
-    } else if ($('.list-works__type-work:nth-child(1)').css('order') == '2'){
-        $('.list-works__type-work:nth-child(1)').css({
-			order: '3'
-		});
-		$('.list-works__type-work:nth-child(2)').css({
-			order: '1'
-		});
-		$('.list-works__type-work:nth-child(3)').css({
+		thirdBlock.css({
 			order: '2'
 		});
-    } else if ($('.list-works .list-works__type-work:nth-child(1)').css('order') == '3'){
-        $('.list-works__type-work:nth-child(1)').css({
+    } else if (firstBlock.css('order') == '3'){
+        firstBlock.css({
 			order: '1'
 		});
-		$('.list-works__type-work:nth-child(2)').css({
+		secondBlock.css({
 			order: '2'
 		});
-		$('.list-works__type-work:nth-child(3)').css({
+		thirdBlock.css({
 			order: '3'
 		});
 	}
 });	
 
-$('.arrow2').click(function(){
-	if($('.list-works__type-work:nth-child(1)').css('order') == '1') {
-        $('.list-works__type-work:nth-child(1)').css({
+$('.works__right-arrow').click(function(){
+	if(firstBlock.css('order') == '1') {
+        firstBlock.css({
 			order: '3'
 		});
-		$('.list-works__type-work:nth-child(2)').css({
+		secondBlock.css({
 			order: '1'
 		});
-		$('.list-works__type-work:nth-child(3)').css({
+		thirdBlock.css({
 			order: '2'
 		});
-    } else if ($('.list-works__type-work:nth-child(1)').css('order') == '2'){
-        $('.list-works__type-work:nth-child(1)').css({
+    } else if (firstBlock.css('order') == '2'){
+        firstBlock.css({
 			order: '1'
 		});
-		$('.list-works__type-work:nth-child(2)').css({
+		secondBlock.css({
 			order: '2'
 		});
-		$('.list-works__type-work:nth-child(3)').css({
+		thirdBlock.css({
 			order: '3'
 		});
-    } else if ($('.list-works .list-works__type-work:nth-child(1)').css('order') == '3'){
-        $('.list-works__type-work:nth-child(1)').css({
+    } else if (firstBlock.css('order') == '3'){
+        firstBlock.css({
 			order: '2'
 		});
-		$('.list-works__type-work:nth-child(2)').css({
+		secondBlock.css({
 			order: '3'
 		});
-		$('.list-works__type-work:nth-child(3)').css({
+		thirdBlock.css({
 			order: '1'
 		});
 	}
 });
 
-$('.works__switch button:nth-child(1)').click(function(){
-	$('.works__switch button:nth-child(1)').css({ 
+firstSwitch.click(function(){
+	firstSwitch.css({ 
 		'background-color': '#ff4e2e'
 	});
-	$('.works__switch button:nth-child(2)').css({ 
+	secondSwitch.css({ 
 		'background-color': '#ebebeb'
 	});
-	$('.works__switch button:nth-child(3)').css({ 
+	thirdSwitch.css({ 
 		'background-color': '#ebebeb'
 	});
 	
 	if ($('body').css('width') <= '1190px') {
-		$('.list-works__type-work:nth-child(1)').css({
+		firstBlock.css({
 			order: '1',
 			display: 'block'
 		});
-		$('.list-works__type-work:nth-child(2)').css({
+		secondBlock.css({
 			order: '2',
 			display: 'block'
 		});
-		$('.list-works__type-work:nth-child(3)').css({
+		thirdBlock.css({
 			order: '3',
 			display: 'none'
 		});
 	} else if ($('body').css('width') <= '999px' & $('body').css('width') > '720px') {
-			$('.list-works__type-work:nth-child(1)').css({
+		firstBlock.css({
 				order: '1',
 				display: 'block'
 			});
-			$('.list-works__type-work:nth-child(2)').css({
+			secondBlock.css({
 				order: '2',
 				display: 'block'
 			});
-			$('.list-works__type-work:nth-child(3)').css({
+			thirdBlock.css({
 				order: '3',
 				display: 'none'
 			});
 	} else if ($('body').css('width') <= '720px') {
-		$('.list-works__type-work:nth-child(1)').css({
+		firstBlock.css({
 			order: '1',
 			display: 'block'
 		});
-		$('.list-works__type-work:nth-child(2)').css({
+		secondBlock.css({
 			order: '2',
 			display: 'none'
 		});
-		$('.list-works__type-work:nth-child(3)').css({
+		thirdBlock.css({
 			order: '3',
 			display: 'none'
 		});
 	}
 });
 
-$('.works__switch button:nth-child(2)').click(function(){
+secondSwitch.click(function(){
 
-	$('.works__switch button:nth-child(1)').css({ 
+	firstSwitch.css({ 
 		'background-color': '#ebebeb'
 	});
-	$('.works__switch button:nth-child(2)').css({ 
+	secondSwitch.css({ 
 		'background-color': '#ff4e2e'
 	});
-	$('.works__switch button:nth-child(3)').css({ 
+	thirdSwitch.css({ 
 		'background-color': '#ebebeb'
 	});
 	
 	if ($('body').css('width') <= '1190px') {	
-		$('.list-works__type-work:nth-child(1)').css({
+		firstBlock.css({
 			order: '3',
 			display: 'none'
 		});
-		$('.list-works__type-work:nth-child(2)').css({
+		secondBlock.css({
 			order: '1',
 			display: 'block'
 		});
-		$('.list-works__type-work:nth-child(3)').css({
+		thirdBlock.css({
 			order: '2',
 			display: 'block'
 		});
 	} else if ($('body').css('width') <= '999px' & $('body').css('width') > '720px') {
-		$('.list-works__type-work:nth-child(1)').css({
+		firstBlock.css({
 			order: '3',
 			display: 'none'
 		});
-		$('.list-works__type-work:nth-child(2)').css({
+		secondBlock.css({
 			order: '1',
 			display: 'block'
 		});
-		$('.list-works__type-work:nth-child(3)').css({
+		thirdBlock.css({
 			order: '2',
 			display: 'block'
 		});
 	} else if ($('body').css('width') <= '720px') {
-		$('.list-works__type-work:nth-child(1)').css({
+		firstBlock.css({
 			order: '3',
 			display: 'none'
 		});
-		$('.list-works__type-work:nth-child(2)').css({
+		secondBlock.css({
 			order: '1',
 			display: 'none'
 		});
-		$('.list-works__type-work:nth-child(3)').css({
+		thirdBlock.css({
 			order: '2',
 			display: 'block'
 		});
 	}
 });
 
-$('.works__switch button:nth-child(3)').click(function(){
+thirdSwitch.click(function(){
 
-	$('.works__switch button:nth-child(1)').css({ 
+	firstSwitch.css({ 
 		'background-color': '#ebebeb'
 	});
-	$('.works__switch button:nth-child(2)').css({ 
+	secondSwitch.css({ 
 		'background-color': '#ebebeb'
 	});
-	$('.works__switch button:nth-child(3)').css({ 
+	thirdSwitch.css({ 
 		'background-color': '#ff4e2e'
 	});
 	
 	if ($('body').css('width') <= '1190px') {
-		$('.list-works__type-work:nth-child(1)').css({
+		firstBlock.css({
 			order: '2',
 			display: 'block'
 		});
-		$('.list-works__type-work:nth-child(2)').css({
+		secondBlock.css({
 			order: '3',
 			display: 'none'
 		});
-		$('.list-works__type-work:nth-child(3)').css({
+		thirdBlock.css({
 			order: '1',
 			display: 'block'
 		});
 	} else if ($('body').css('width') <= '999px' & $('body').css('width') > '720px') {
-		$('.list-works__type-work:nth-child(1)').css({
+		firstBlock.css({
 			order: '2',
 			display: 'block'
 		});
-		$('.list-works__type-work:nth-child(2)').css({
+		secondBlock.css({
 			order: '3',
 			display: 'none'
 		});
-		$('.list-works__type-work:nth-child(3)').css({
+		thirdBlock.css({
 			order: '1',
 			display: 'block'
 		});
 	} else if ($('body').css('width') <= '720px') {
-		$('.list-works__type-work:nth-child(1)').css({
+		firstBlock.css({
 			order: '2',
 			display: 'none'
 		});
-		$('.list-works__type-work:nth-child(2)').css({
+		secondBlock.css({
 			order: '3',
 			display: 'block'
 		});
-		$('.list-works__type-work:nth-child(3)').css({
+		thirdBlock.css({
 			order: '1',
 			display: 'none'
 		});

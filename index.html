@@ -4,8 +4,11 @@
 	<title>Arrrty</title>
 	<meta charset="utf-8">
 	<link rel="stylesheet" type="text/css" href="CSS/style.css">
-	<script src="JS/jquery-3.4.1.min.js" type="text/javascript"></script>
-	<script src="JS/main.js" type="text/javascript"></script>
+	<script src="JS/jquery-3.4.1.min.js" ></script>
+	<script src="JS/main.js"></script>
+	<script src="JS/jquery.inputmask.min.js"></script>
+	<script src="JS/jquery.formstyler.min.js"></script>
+	<script src="JS/jquery.validate.min.js"></script>
 	<link rel="apple-touch-icon" sizes="180x180" href="favicon/apple-touch-icon.png">
 	<link rel="icon" type="image/png" sizes="32x32" href="favicon/favicon-32x32.png">
 	<link rel="icon" type="image/png" sizes="16x16" href="favicon/favicon-16x16.png">
@@ -20,30 +23,6 @@
 	<p>&lt;div></p>
 	<p>&lt;/></p>
 	<p>&lt;div></p>
-	<div class="form-send phone">
-		<div class="form-send_container">
-			<form>
-				<h3>Имя</h3>
-				<input type="text" required="required" name="Name">
-				<h3>Телефон</h3>
-				<input type="tel" required="required" name="tel" pattern="[0-9]{11}">
-				<input class="button-request button_background-color" type="submit" name="submit" value="Отправить">
-			</form>
-		</div>
-	</div>
-	<div class="form-send email">
-		<div class="form-send_container">
-			<form>
-				<h3>Имя</h3>
-				<input type="text" required="required" name="Name">
-				<h3>Телефон</h3>
-				<input type="tel" required="required" name="tel" pattern="[0-9]{11}">
-				<h3>Адрес электронной почты</h3>
-				<input type="email" required="required" name="email">
-				<input class="button-request button_background-color" type="submit" name="submit" value="Отправить">
-			</form>
-		</div>
-	</div>
 	<svg class="svg-1" width="814" height="630">
 		<defs>
 			<linearGradient id="tgc0a" x1="371.97" x2="548.51" y1="763.68" y2=".74" gradientUnits="userSpaceOnUse">
@@ -61,7 +40,7 @@
 	</svg>
 	<svg class="svg-2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 547 525" width="547" height="525">
 		<defs>
-			<linearGradient id="544fa" gradientUnits="userSpaceOnUse" x1="387" y1="629.99" x2="532.01" y2="0.02">
+			<linearGradient id="a544fa" gradientUnits="userSpaceOnUse" x1="387" y1="629.99" x2="532.01" y2="0.02">
 				<stop stop-color="#ff8f5a" offset="0" />
 				<stop stop-color="#ff2f96" offset="0.99" />
 				<stop stop-color="#ff2f96" offset="1" />
@@ -70,24 +49,70 @@
 		<g>
 			<g clip-path="url(&quot;#clip-4&quot;)">
 				<path fill="#6055c4" d="M 394.819 32.771 C 501.505 -8.89 602.187 -9.019 686.362 22.255 c 84.392 31.02 152.279 93.443 198.39 171.019 c 44.247 78.347 44.2 162.5 8.063 230.576 c -36.637 69.09 -97.616 121.179 -180.712 158.354 c -44.008 18.718 -90.266 31.542 -149.072 39.413 c -58.031 7.756 -128.611 10.561 -203.39 6.56 C 211.243 620.48 44.927 584.346 9.853 502.84 c -19.876 -40.472 -7.4 -86.865 17.312 -133.552 c 25.117 -46.756 62.47 -93.806 101.688 -137.165 c 39.624 -43.428 81.113 -83.165 123.827 -116.864 c 43.12 -33.768 87.464 -61.5 142.139 -82.489 Z" />
-				<path fill="url(#544fa)" d="M 394.819 32.771 C 501.505 -8.89 602.187 -9.019 686.362 22.255 c 84.392 31.02 152.279 93.443 198.39 171.019 c 44.247 78.347 44.2 162.5 8.063 230.576 c -36.637 69.09 -97.616 121.179 -180.712 158.354 c -44.008 18.718 -90.266 31.542 -149.072 39.413 c -58.031 7.756 -128.611 10.561 -203.39 6.56 C 211.243 620.48 44.927 584.346 9.853 502.84 c -19.876 -40.472 -7.4 -86.865 17.312 -133.552 c 25.117 -46.756 62.47 -93.806 101.688 -137.165 c 39.624 -43.428 81.113 -83.165 123.827 -116.864 c 43.12 -33.768 87.464 -61.5 142.139 -82.489 Z" />
+				<path fill="url(#a544fa)" d="M 394.819 32.771 C 501.505 -8.89 602.187 -9.019 686.362 22.255 c 84.392 31.02 152.279 93.443 198.39 171.019 c 44.247 78.347 44.2 162.5 8.063 230.576 c -36.637 69.09 -97.616 121.179 -180.712 158.354 c -44.008 18.718 -90.266 31.542 -149.072 39.413 c -58.031 7.756 -128.611 10.561 -203.39 6.56 C 211.243 620.48 44.927 584.346 9.853 502.84 c -19.876 -40.472 -7.4 -86.865 17.312 -133.552 c 25.117 -46.756 62.47 -93.806 101.688 -137.165 c 39.624 -43.428 81.113 -83.165 123.827 -116.864 c 43.12 -33.768 87.464 -61.5 142.139 -82.489 Z" />
 			</g>
 		</g>
 	</svg>
+	<div class="form-send phone">
+		<div class="form-send_container">
+			<form action="email/arrrty.ru">
+				<input type="hidden" name="project_name" value="Сайт">
+				<input type="hidden" name="admin_email" value="arty49464@gmail.com">
+				<input type="hidden" name="form_subject" value="Заказ">
+				<h3>Имя</h3>
+				<input type="text" required="required" name="Имя">
+				<h3>Телефон</h3>
+				<input type="tel" required="required" name="Телефон" pattern="[0-9]{11}">
+				<input class="button-request button_background-color" type="submit" name="submit" value="Отправить">
+			</form>
+		</div>
+	</div>
+	<div class="form-send email">
+		<div class="form-send_container">
+			<form>
+				<h3>Имя</h3>
+				<input type="text" required="required" name="Имя">
+				<h3>Телефон</h3>
+				<input type="tel" required="required" name="Телефон" placeholder="+7 (___) ___-__-__">
+				<h3>Адрес электронной почты</h3>
+				<input type="email" required="required" name="Почта">
+				<input class="button-request button_background-color" type="submit" name="submit" value="Отправить">
+			</form>
+		</div>
+	</div>
 	<header class="header">
 		<div class="fixed-container">
 			<div class="header-panel">
-				<div class="header-panel__menu">
-					<a href="#">Услуги</a>
-					<a href="#">Портфолио</a>
-					<a href="#">Стоимость</a>
+				<nav class="header-panel__menu">
+					<a href="#services">Услуги</a>
+					<a href="#portfolio">Портфолио</a>
+					<a href="#prices">Стоимость</a>
 					<img src="img/burger.png" alt="menu">
-				</div>
+				</nav>
 				<div class="header-panel__contacts">
 					<a class="call" href="tel:+7(916)468-03-38">+7 (916) 468-03-38</a>
 					<button class="button_background-transparent to-order">Заказать звонок</button>
 				</div>
 				<button class="button-mobail_background-transparent to-order"></button>
+			</div>
+			<div class="menu-mobail">
+				<div class="header-panel">
+					<div class="header-panel__menu">
+						<img src="img/burger.png" alt="menu">
+					</div>
+					<div class="header-panel__contacts">
+						<a class="call" href="tel:+7(916)468-03-38">+7 (916) 468-03-38</a>
+						<button class="button_background-transparent">Заказать звонок</button>
+					</div>
+					<button class="button-mobail_background-transparent"></button>
+				</div>
+				<nav>
+					<ul>
+						<li><a href="#services">Услуги</a></li>
+						<li><a href="#portfolio">Портфолио</a></li>
+						<li><a href="#prices">Стоимость</a></li>
+					</ul>
+				</nav>
 			</div>
 			<div class="header-cutaway">
 				<div class="header-cutaway__my-name">
@@ -97,84 +122,62 @@
 					<p>
 						Frontend-разработчик и веб-верстальщик
 					</p>
-					<button class="button_background-color header-cutaway__button info">Узнать больше</button>
+					<button class="header-cutaway__button button_background-color info">Узнать больше</button>
 				</div>
 				<img src="img/shutterstock_574398823.png" alt="я">
 			</div>
 		</div>
-		<div class="menu-mob">
-			<div class="header-panel">
-				<div class="header-panel__menu">
-					<a href="#">Услуги</a>
-					<a href="#">Портфолио</a>
-					<a href="#">Стоимость</a>
-					<img src="img/burger.png" alt="menu">
-				</div>
-				<div class="header-panel__contacts">
-					<a class="call" href="tel:+7(916)468-03-38">+7 (916) 468-03-38</a>
-					<button class="button_background-transparent">Заказать звонок</button>
-				</div>
-				<button class="button-mobail_background-transparent"></button>
-			</div>
-			<nav>
-				<ul>
-					<li><a href="#">Услуги</a></li>
-					<li><a href="#">Портфолио</a></li>
-					<li><a href="#">Стоимость</a></li>
-				</ul>
-			</nav>
-		</div>
 	</header>
-	<div class="ability">
+	<div class="abilitys" id="services">
 		<div class="fixed-container">
 			<h2>Что я делаю</h2>
-			<div class="block-skills">
-				<div class="block-skills__description">
+			<div class="abilitys__content">
+				<div class="abilitys__description">
 					<img src="img/tools-and-utensils.png" alt="Картинка">
 					<p>Вёрстка лендинг–страниц и сайтов любой сложности</p>
 				</div>
-				<div class="block-skills__description">
+				<div class="abilitys__description">
 					<img src="img/responsive.png" alt="Картинка">
 					<p>Адаптивная вёрстка под все браузеры и устройства</p>
 				</div>
-				<div class="block-skills__description">
+				<div class="abilitys__description">
 					<img src="img/programming.png" alt="Картинка">
 					<p>Frontend–разработка и программирование</p>
 				</div>
-				<div class="block-skills__description">
+				<div class="abilitys__description">
 					<img src="img/coding.png" alt="Картинка">
 					<p>Исправление и доработка существующей вёрстки</p>
 				</div>
 			</div>
-			<button class="button_background-color ability__button info">Узнать стоимость</button>
+			<button class="button_background-color abilitys__button info">Узнать стоимость</button>
 		</div>
 	</div>
-	<div class="works">
+	<div class="works" id="portfolio">
 		<div class="fixed-container">
 			<h2>Примеры моих работ</h2>
-			<div class="block-works">
-				<img class="block-works__arrow arrow1" src="img/arrow.png" alt="Работа">
-				<div class="list-works">
-					<div class="list-works__type-work">
+			<div class="works__content">
+				<img class="works__left-arrow" src="img/arrow.png" alt="Работа">
+				<div class="works__list">
+					<div class="works__item">
 						<a href="#">
 							<img src="img/Layer.png" alt="Работа">
 							<p>Сайт психолога Веры Антоновой</p>
 						</a>
 					</div>
-					<div class="list-works__type-work">
+					<div class="works__item">
 						<a href="#">
 							<img src="img/Layer_1.png" alt="Работа">
 							<p>Сайт магазина детской одежды</p>
 						</a>
 					</div>
-					<div class="list-works__type-work">
+					<div class="works__item">
 						<a href="#">
 							<img src="img/Layer_2.png" alt="Работа">
 							<p>Сайт магазина «Рыболов»</p>						
 						</a>
 					</div>
 				</div>
-				<img class="block-works__arrow arrow2" src="img/arrow.png" alt="Работа">
+				<img class="works__right-arrow" src="img/arrow.png" alt="Работа">
 			</div>
 			<div class="works__switch">
 				<button></button>
@@ -184,7 +187,7 @@
 			<button class="button_background-color works__button info">Заказать проект</button>
 		</div>
 	</div>
-	<div class="price-information">
+	<div class="price-information" id="prices">
 		<p>{ }</p>
 		<p>#</p>
 		<p>&lt;div></p>
@@ -200,13 +203,13 @@
 	<footer>
 		<div class="fixed-container">
 			<div class="footer">
-				<div class="footer__menu">
+				<nav class="footer__menu">
 					<ul>
-						<li><a href="#">Услуги</a></li>
-						<li><a href="#">Портфолио</a></li>
-						<li><a href="#">Стоимость</a></li>
+						<li><a href="#services">Услуги</a></li>
+						<li><a href="#portfolio">Портфолио</a></li>
+						<li><a href="#prices">Стоимость</a></li>
 					</ul>
-				</div>
+				</nav>
 				<div class="footer__contacts">
 					<ul>
 						<li><a class="lsf" href="tel:+7(916)468-03-38">call</a><a class="call" href="tel:+7(916)468-03-38">+7 (916) 468-03-38</a></li>
@@ -229,5 +232,56 @@
 			© Артем Якимов, 2020
 		</p>
 	</footer>
+	<script>
+		$(document).ready(function(){
+			$('input[type="tel"]').inputmask({ "mask": "+7 (999) 999-9999" }); //specifying options
+
+
+			$('select').styler();
+
+
+			$('form').each(function () {
+				$(this).validate({
+					errorPlacement(error, element) {
+						return true;
+					},
+					focusInvalid: false,
+					rules: {
+						Телефон: {
+							required: true,
+						},
+						Имя: {
+							required: true,
+							maxlength: 10,
+						}
+					},
+					messages: {
+						Телефон: {
+							required: 'Нужно что-то ввести'
+						},
+						Имя: {
+							required: 'Нужно что-то ввести',
+							maxlength: 'Нужно ввести максимум 10 букв'
+						}
+					},
+					submitHandler(form) {
+					let th = $(form);
+
+					$.ajax({
+					type: 'POST',
+					url: 'mail.php',
+					data: th.serialize(),
+					// eslint-disable-next-line func-names
+				}).done(() => {
+
+					th.trigger('reset');
+				});
+
+				return false;
+				}
+			});
+			});
+		});
+	</script>
 </body>
 </html>
